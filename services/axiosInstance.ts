@@ -1,7 +1,7 @@
 //@ts-nocheck
 import axios from 'axios';
-import { manageJSONParse } from '../utils';
-import appSettings from '../../appSettings.json'
+import { manageJSONParse } from '../utils/utils';
+import appSettings from '../utils/appSettings.json'
 
 
 const axiosInstance = axios.create({
@@ -11,8 +11,6 @@ const axiosInstance = axios.create({
         'Content-Type': 'application/json',
     },
 });
-
-    console.log("App Settings", baseURL);
 
 const sysdetail = localStorage.getItem('system') || ""
 const ipdetails = localStorage.getItem('ipaddress') || ""

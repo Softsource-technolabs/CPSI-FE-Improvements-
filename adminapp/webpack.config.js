@@ -46,7 +46,13 @@ module.exports = {
         './App': './src/App.tsx',
       },
       remotes: {
+        settingapp: 'settingapp@http://localhost:3001/remoteEntry.js',
+        appprofile: 'appprofile@http://localhost:3004/remoteEntry.js',
+        tenantapp: 'tenantapp@http://localhost:3005/remoteEntry.js',
         loginapp: 'loginapp@http://localhost:3006/remoteEntry.js',
+        analyticsapp: 'analyticsapp@http://localhost:3007/remoteEntry.js',
+        appmanager: 'appmanager@http://localhost:3008/remoteEntry.js',
+        rolesmanagement: 'rolesmanagement@http://localhost:3009/remoteEntry.js',
       },
       shared: {
         react: { singleton: true, eager: true, requiredVersion: false },
@@ -56,12 +62,12 @@ module.exports = {
     }),
      new CopyWebpackPlugin({
       patterns: [
-        // { from: 'public/robots.txt', to: 'robots.txt' },
-        // { from: 'public/manifest.json', to: 'manifest.json' },
+        { from: 'public/robots.txt', to: 'robots.txt' },
+        { from: 'public/manifest.json', to: 'manifest.json' },
         { from: 'utils/appSettings.json', to: 'appSettings.json' },
         { from: 'public/web.config', to: 'web.config' },
-        // { from: 'public/logo192.png', to: 'logo192.png' },
-        // { from: 'public/logo512.png', to: 'logo512.png' }
+        { from: 'public/logo192.png', to: 'logo192.png' },
+        { from: 'public/logo512.png', to: 'logo512.png' }
       ],
     }),
   ],

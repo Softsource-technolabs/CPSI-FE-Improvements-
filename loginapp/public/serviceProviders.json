@@ -1,0 +1,29 @@
+{
+  "providers": [
+    {
+      "id": 1,
+      "providerName": "Google",
+      "loginEndpoint": null
+    },
+    {
+      "id": 2,
+      "providerName": "Microsoft",
+      "loginEndpoint": null
+    },
+    {
+      "id": 3,
+      "providerName": "Active Directory",
+      "loginEndpoint": "https://portal4all.com/AuthBridgeDev/api/Account/AD-Login"
+    },
+    {
+      "id": 4,
+      "providerName": "ADFS",
+      "loginEndpoint": null
+    },
+    {
+      "id": 5,
+      "providerName": "App Login",
+      "loginEndpoint": "https://portal4all.com/AuthBridgeDev/api/Account/Login"
+    }
+  ]
+}

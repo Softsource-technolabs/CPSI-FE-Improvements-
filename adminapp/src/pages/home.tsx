@@ -8,6 +8,10 @@ const Home: React.FC = () => {
         navigate("/login");
     };
 
+    const goToAnalytics = () => {
+        navigate("/analytics");
+    }
+
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 to-purple-500 text-white">
             <h1 className="text-4xl font-bold mb-4">Welcome to Our App</h1>
@@ -19,6 +23,12 @@ const Home: React.FC = () => {
                 className="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300"
             >
                 Go to Login
+            </button>
+             <button
+                onClick={goToAnalytics}
+                className="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300"
+            >
+                Go to Analytics App
             </button>
         </div>
     );

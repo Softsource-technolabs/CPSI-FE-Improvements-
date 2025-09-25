@@ -123,7 +123,7 @@ const LoginStart: React.FC = () => {
         console.log("Response 1", adProvider);
         Swal.close();
         setTimeout(() => {
-          navigate("/loginPass", { state: { email } });
+          navigate("/admin/loginPass", { state: { email } });
         }, 100);
         return;
       }

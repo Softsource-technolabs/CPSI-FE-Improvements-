@@ -22,7 +22,6 @@ const ExternalRedirect = ({ to }: { to: string }) => {
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
-
 //  useEffect(() => {
 //   const iframe = document.createElement('iframe');
 //   iframe.style.display = 'none';
@@ -88,9 +87,12 @@ const App: React.FC = () => {
           }
         />
         <Route
-          path="/loginPass"
+          path="/admin/loginPass"
           element={
-            isLoggedIn ? <ExternalRedirect to="http://localhost:3002/admin/appProfiles" /> : <LoginAdPassword />
+            <div>
+              Password page
+            </div>
+            // isLoggedIn ? <ExternalRedirect to="http://localhost:3002/admin/appProfiles" /> : <LoginAdPassword />
           }
         />
         <Route

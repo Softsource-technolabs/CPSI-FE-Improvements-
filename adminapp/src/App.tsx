@@ -24,13 +24,14 @@ import TokenChecker from './pages/TokenChecker';
 
 
 const Login = React.lazy(() => import("../../loginapp/src/App") as Promise<{ default: React.ComponentType }>);
+const LoginPass = React.lazy(() => import("../../loginapp/src/components/login/LoginAdPassword") as Promise<{ default: React.ComponentType }>);
+
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const AppRoutes: React.FC = () => {
   const location = useLocation();
-
   const isAdminRoute = location.pathname.startsWith("/admin");
-  const isLoginPage = location.pathname === "/admin/login";
+  const isLoginPage = location.pathname === "/admin/login" || location.pathname === "/admin/loginPass";
   const showHeader = isAdminRoute && !isLoginPage;
 
   return (
@@ -44,6 +45,16 @@ const AppRoutes: React.FC = () => {
               <Navigate to="/admin/appProfiles" replace />
             ) : (
               <Login />
+            )
+          }
+        />
+         <Route
+          path="/admin/loginPass"
+          element={
+            localStorage.getItem("loginResponse") ? (
+              <Navigate to="/admin/appProfiles" replace />
+            ) : (
+              <LoginPass />
             )
           }
         />

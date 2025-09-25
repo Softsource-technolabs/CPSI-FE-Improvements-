@@ -12,8 +12,6 @@ interface FormData {
 
 const LoginAdPassword: React.FC = () => {
 
-  alert("LoginAdPassword Component Rendered");
-
   const { state } = useLocation();
   const userData: any = state;
   const [showPassword, setShowPassword] = useState(false);

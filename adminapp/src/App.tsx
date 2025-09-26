@@ -11,7 +11,7 @@ import { ContentLayout } from "./pages/content";
 import HeaderLayout from "./pages/header";
 import AuthGuard from "./components/AuthGuard";
 import CheckAuth from "./components/CheckAuth";
-// import "../output.css";
+import "./output.css";
 import defaultSetting from "../../constant/defaultSetting.json";
 import defaultTextSettings from '../../constant/defaultTextSettings.json'
 import { getLocationFromCoordinates, getMacIPDetails, getSysdetails } from "../../utils/utils";

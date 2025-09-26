@@ -1,12 +1,15 @@
-import React from 'react';
-import './index.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AppProfileForm from './pages/app-profile-form';
+import './output.css';
 
-function App() {
+const App = () => {
+
   return (
-    <>
-      <h1> Profile App </h1>
-    </>
+      <Routes>
+          <Route path="/*" element={<AppProfileForm />} />
+      </Routes>
   );
-}
+};
 
 export default App;

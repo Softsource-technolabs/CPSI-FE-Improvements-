@@ -1,5 +1,3 @@
-//@ts-nocheck
-
 import React, { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
 import Swal from "sweetalert2";
@@ -107,10 +105,7 @@ const LoginStart: React.FC = () => {
     }
   };
 
-  
   const callSSOApi = async (email: string) => {
-    console.log("Calling SSO API with email:", email);
-
     try {
       const adProvider = providers.find((p) => p.id === 3);
       const appLoginProvider = providers.find((p) => p.id === 5);
@@ -120,36 +115,29 @@ const LoginStart: React.FC = () => {
       console.log("Provider check:", { adProvider, appLoginProvider, isADEmail, email });
 
       if (isADEmail && adProvider) {
-        console.log("Response 1", adProvider);
         Swal.close();
         setTimeout(() => {
-          navigate("/loginPass", { state: { email } });
+          navigate("/admin/loginPass", { state: { email } });
         }, 100);
         return;
       }
 
-      console.log("Response 2", appLoginProvider);
-      
-      return
-
       if (adProvider && adProvider.loginEndpoint) {
-        const response = await ApiService.post(adProvider.loginEndpoint, { email }, 
-          // {
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //     'X-System-location-Info': JSON.stringify({
-        //       location: locationDetails,
-        //       system: systemInfo,
-        //       ipaddress
-        //     }),
-        //   }
-        // }
-      );
+        const response = await axios.post(adProvider.loginEndpoint, { email }, {
+          headers: {
+            'Content-Type': 'application/json',
+            'X-System-location-Info': JSON.stringify({
+              location: locationDetails,
+              system: systemInfo,
+              ipaddress
+            }),
+          }
+        });
         
-        console.log('AD Provider Response', response); 
+        console.log('AD Provider Response', response.data);
 
-        if (response) {
-          const serviceId = response?.serviceProviderId;
+        if (response.data?.success) {
+          const serviceId = response.data.data?.serviceProviderId;
           if (serviceId === 3 || serviceId === 5) {
             Swal.close();
             setTimeout(() => {
@@ -342,5 +330,6 @@ const LoginStart: React.FC = () => {
     </>
   );
 };
+
 
 export default LoginStart;

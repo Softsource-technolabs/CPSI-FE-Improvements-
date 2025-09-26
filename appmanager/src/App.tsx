@@ -1,12 +1,17 @@
-import React from 'react';
-import './index.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import '../src/output.css';
+import { ApplicationManagerList } from './pages/application-manager/application-table';
 
-function App() {
+const App = () => {
+
   return (
-    <>
-      <h1>App Manager</h1>
+    <> 
+      <Routes>
+          <Route path="/*" element={<ApplicationManagerList applications={[]} onEdit={() => {}} onDelete={() => {}} onToggleEnabled={() => {}} onToggleVisibility={() => {}} />} />
+      </Routes>
     </>
   );
-}
+};
 
 export default App;
